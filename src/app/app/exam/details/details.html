@@ -1,0 +1,212 @@
+<div>
+    <div class="mb-8">
+        <div class="flex flex-col lg:flex-row gap-3 lg:justify-between lg:items-end">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">Unified Tertiary Entrance Exam</h1>
+                <p class="text-gray-600">Information about this exam.</p>
+            </div>
+            <div class="flex gap-2 items-center">
+                <a routerLink="participants"  class="btn outline bg-white!">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#4a4a4a" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15.5 11C15.5 9.067 13.933 7.5 12 7.5C10.067 7.5 8.5 9.067 8.5 11C8.5 12.933 10.067 14.5 12 14.5C13.933 14.5 15.5 12.933 15.5 11Z" />
+                        <path d="M15.4827 11.3499C15.8047 11.4475 16.1462 11.5 16.5 11.5C18.433 11.5 20 9.933 20 8C20 6.067 18.433 4.5 16.5 4.5C14.6851 4.5 13.1928 5.8814 13.0173 7.65013" />
+                        <path d="M10.9827 7.65013C10.8072 5.8814 9.31492 4.5 7.5 4.5C5.567 4.5 4 6.067 4 8C4 9.933 5.567 11.5 7.5 11.5C7.85381 11.5 8.19535 11.4475 8.51727 11.3499" />
+                        <path d="M22 16.5C22 13.7386 19.5376 11.5 16.5 11.5" />
+                        <path d="M17.5 19.5C17.5 16.7386 15.0376 14.5 12 14.5C8.96243 14.5 6.5 16.7386 6.5 19.5" />
+                        <path d="M7.5 11.5C4.46243 11.5 2 13.7386 2 16.5" />
+                    </svg>
+
+                    Candidates
+                </a>
+                <a routerLink="feed"  class="btn fill">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#ffffff" fill="none" stroke="#ffffff" stroke-width="2">
+                        <path d="M2 11C2 7.70017 2 6.05025 3.02513 5.02513C4.05025 4 5.70017 4 9 4H10C13.2998 4 14.9497 4 15.9749 5.02513C17 6.05025 17 7.70017 17 11V13C17 16.2998 17 17.9497 15.9749 18.9749C14.9497 20 13.2998 20 10 20H9C5.70017 20 4.05025 20 3.02513 18.9749C2 17.9497 2 16.2998 2 13V11Z" />
+                        <path d="M17 8.90585L17.1259 8.80196C19.2417 7.05623 20.2996 6.18336 21.1498 6.60482C22 7.02628 22 8.42355 22 11.2181V12.7819C22 15.5765 22 16.9737 21.1498 17.3952C20.2996 17.8166 19.2417 16.9438 17.1259 15.198L17 15.0941" />
+                        <circle cx="11.5" cy="9.5" r="1.5" />
+                    </svg>
+
+                    Live feed
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 rounded-xl bg-white p-5">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h2 class="text-base font-semibold">Exam information</h2>
+                        <p class="text-sm text-gray-500">Key details at a glance</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="rounded-lg bg-gray-50 p-4">
+                        <p class="text-xs text-gray-500">Sections</p>
+                        <p class="mt-1 font-medium">English, Biology, Physics, Chemistry</p>
+                    </div>
+                    <div class="rounded-lg bg-gray-50 p-4">
+                        <p class="text-xs text-gray-500">Scheduled</p>
+                        <p class="mt-1 font-medium">Jan 19, 2026</p>
+                    </div>
+                    <div class="rounded-lg bg-gray-50 p-4">
+                        <p class="text-xs text-gray-500">Duration</p>
+                        <p class="mt-1 font-medium">120 minutes</p>
+                    </div>
+                    <div class="rounded-lg bg-gray-50 p-4">
+                        <p class="text-xs text-gray-500">Exam status</p>
+                        <p class="mt-1 font-medium">Not started</p>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>Elapsed: 45m</span>
+                        <span>Remaining: 75m</span>
+                    </div>
+                    <div class="mt-2 h-2 w-full rounded-full bg-gray-200">
+                        <div class="h-2 rounded-full bg-primary" style="width: 37.5%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl bg-white p-5">
+                <h2 class="text-base font-semibold">Proctoring Rules / Guidelines</h2>
+                <ul class="mt-4 list-disc list-inside text-sm text-gray-700 space-y-2">
+                    <li>No external devices allowed.</li>
+                    <li>Candidate must remain visible on camera.</li>
+                    <li>Background noise or multiple faces will be flagged.</li>
+                    <li>Proctor may pause exam or message candidate if needed.</li>
+                    <li>All actions are logged in the audit trail.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-5">
+            <div class="lg:col-span-2 rounded-xl bg-white p-5">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h2 class="text-base font-semibold">Infractions</h2>
+                        <p class="text-sm text-gray-500">Real time tracking for all assigned candidates</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a [routerLink]="'../../report'" class="rounded-md border border-gray-200 px-3 py-2 text-xs hover:bg-gray-50">View all</a>
+                        <button (click)="menu.toggle($event)" class="rounded-md border border-gray-200 px-3 py-2 text-xs hover:bg-gray-50">Filter</button>
+
+                        <p-menu #menu [popup]="true" appendTo="body">
+                            <ng-template pTemplate="start">
+                                <div class="p-1">
+                                    <div class="rounded-xl bg-white p-5">
+                                        <h2 class="text-base font-semibold">Filter infractions</h2>
+                                        <div class="mt-4 grid grid-cols-2 gap-3">
+                                            <button class="rounded-md border border-gray-200 px-3 py-2 text-sm hover:bg-gray-50 text-left">Verified</button>
+                                            <button class="rounded-md border border-gray-200 px-3 py-2 text-sm hover:bg-gray-50 text-left">Pending ID</button>
+                                            <button class="rounded-md border border-gray-200 px-3 py-2 text-sm hover:bg-gray-50 text-left">Flagged</button>
+                                            <button class="rounded-md border border-gray-200 px-3 py-2 text-sm hover:bg-gray-50 text-left">Disconnected</button>
+                                            <button class="rounded-md border border-gray-200 px-3 py-2 text-sm hover:bg-gray-50 text-left">Unstable network</button>
+                                            <button class="rounded-md border border-gray-200 px-3 py-2 text-sm hover:bg-gray-50 text-left">Completed</button>
+                                        </div>
+                                        <div class="mt-6">
+                                            <label class="text-xs text-gray-500">Search by Id</label>
+                                            <div class="mt-1 flex items-center gap-2">
+                                                <input type="text" placeholder="Enter ID" class="w-full rounded-md border px-3 py-2 text-sm focus:outline-none"/>
+                                                <button class="rounded-md bg-gray-900 text-white px-3 py-2 text-sm">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-menu>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="rounded-lg border border-gray-200 p-4">
+                        <p class="text-xs text-gray-500">Flagged incidents</p>
+                        <p class="mt-1 text-2xl font-semibold">14</p>
+                        <p class="text-xs text-amber-600 mt-1">Auto: 9 • Manual: 5</p>
+                    </div>
+                    <div class="rounded-lg border border-gray-200 p-4">
+                        <p class="text-xs text-gray-500">Connection issues</p>
+                        <p class="mt-1 text-2xl font-semibold">7</p>
+                        <p class="text-xs text-gray-600 mt-1">Unstable: 5 • Disconnected: 2</p>
+                    </div>
+                    <div class="rounded-lg border border-gray-200 p-4">
+                        <p class="text-xs text-gray-500">Suspicious activity</p>
+                        <p class="mt-1 text-2xl font-semibold">11</p>
+                        <p class="text-xs text-gray-600 mt-1">Multiple faces: 4 • Noise: 7</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 overflow-hidden rounded-lg border border-gray-200">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500">Time</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500">Candidate</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500">Summary</th>
+                            <th class="px-4 py-3 text-right text-xs font-medium text-gray-500">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 bg-white">
+                        <tr>
+                            <td class="px-4 py-3 text-sm">12:41</td>
+                            <td class="px-4 py-3 text-sm">#A-023 • Adewale O.</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="rounded-full bg-amber-100 text-amber-700 px-2 py-1 text-xs border border-amber-200">Multiple faces</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm text-right">
+                                <button class="rounded-md border border-gray-200 px-3 py-1 text-xs hover:bg-gray-50">Flag</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm">12:36</td>
+                            <td class="px-4 py-3 text-sm">#B-114 • Chiamaka N.</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="rounded-full bg-red-100 text-red-700 px-2 py-1 text-xs border border-red-200">Disconnected</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm text-right">
+                                <button class="rounded-md border border-gray-200 px-3 py-1 text-xs hover:bg-gray-50">Message</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm">12:29</td>
+                            <td class="px-4 py-3 text-sm">#C-057 • Ibrahim S.</td>
+                            <td class="px-4 py-3 text-sm">
+                                <span class="rounded-full bg-indigo-100 text-indigo-700 px-2 py-1 text-xs border border-indigo-200">Noise</span>
+                            </td>
+                            <td class="px-4 py-3 text-sm text-right">
+                                <button class="rounded-md border border-gray-200 px-3 py-1 text-xs hover:bg-gray-50">Flag</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="rounded-xl bg-white p-5">
+                <h2 class="text-base font-semibold">Participants  summary</h2>
+                <p class="text-sm text-gray-500">Real time summary for all assigned participants</p>
+
+                <div class="mt-4 grid grid-cols-2 gap-3">
+                    <div class="rounded-lg border border-gray-200 p-4">
+                        <p class="text-xs text-gray-500">Assigned</p>
+                        <p class="mt-1 text-2xl font-semibold">120</p>
+                    </div>
+                    <div class="rounded-lg border border-gray-200 p-4">
+                        <p class="text-xs text-gray-500">Checked-in</p>
+                        <p class="mt-1 text-2xl font-semibold">108</p>
+                    </div>
+                    <div class="rounded-lg border border-gray-200 p-4">
+                        <p class="text-xs text-gray-500">Connected</p>
+                        <p class="mt-1 text-2xl font-semibold">102</p>
+                    </div>
+                    <div class="rounded-lg border border-gray-200 p-4">
+                        <p class="text-xs text-gray-500">Disconnected</p>
+                        <p class="mt-1 text-2xl font-semibold">18</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="flex min-h-dvh items-center justify-center bg-gray-50 px-4 py-10">
+	<div class="w-full max-w-md">
+		<div class="mb-6 text-center">
+			<div class="mt-1 text-sm text-gray-600">Enter your 6-digit authentication code.</div>
+		</div>
+
+		<form class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm shadow-gray-50" [formGroup]="form" novalidate>
+			<div>
+				<label class="mb-1 block text-sm font-medium text-gray-800" for="code">Code</label>
+				<input type="text"  maxlength="6" class="h-11 w-full rounded-xl border border-gray-300 bg-white px-3 text-gray-900 outline-none transition focus:border-gray-400 focus:ring-2 focus:ring-gray-200 text-xl font-black" formControlName="code"/>
+
+				@if (submitted() && form.controls.code.invalid) {
+					<p class="mt-1 text-xs text-red-600">Enter a valid 6-digit code.</p>
+				}
+			</div>
+
+			<button type="button" class="mt-4 btn fill w-full!" (click)="verify($event)">Verify</button>
+
+			<div class="mt-5 text-center text-sm">
+				<a class="text-gray-700 hover:text-gray-900" routerLink="/auth/signin">Back to sign in</a>
+			</div>
+		</form>
+
+		<p class="mt-6 text-center text-xs text-gray-500">© {{ year }} Multilent Softwares</p>
+	</div>
+</div>

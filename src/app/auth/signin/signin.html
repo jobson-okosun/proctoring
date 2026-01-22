@@ -1,0 +1,83 @@
+<div class="min-h-dvh grid grid-cols-1 md:grid-cols-2 bg-gray-50">
+	
+	<div class="relative flex-col justify-center px-8 md:px-16 bg-gray-50 hidden md:flex">
+		<div class="absolute right-0 top-0 h-full w-16 bg-white rounded-l-[3rem]"></div>
+
+		<div class="relative max-w-md h-full flex flex-col justify-between py-20 ">
+			<div>
+				<div class="flex items-center gap-3">
+					<span class="text-4xl font-black text-gray-800">Proctor</span>
+				</div>
+
+				<p class="mt-4 text-base text-gray-600 leading-relaxed">
+					Welcome back! Sign in to continue and get ready for your exam.
+				</p>
+			</div>
+
+			<div>
+				<p class="mt-4 text-base text-gray-600 leading-relaxed">
+					Once signed in, you'll have access to your exam dashboard and instructions. Take a moment to settle in and focus — we’ll guide you through the process smoothly.
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="flex items-center justify-center px-8 md:px-16 bg-white">
+		<div class="w-full max-w-sm">
+			<div class="mb-6">
+				<h2 class="text-2xl font-semibold text-gray-900">Sign in</h2>
+				<p class="mt-1 text-sm text-gray-600">Enter you credentials to begin</p>
+			</div>
+
+			<form
+				[formGroup]="form"
+				novalidate
+				class="space-y-5"
+			>
+				@if (errorMessage()) {
+					<div class="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+						{{ errorMessage() }}
+					</div>
+				}
+
+				<div>
+					<label class="mb-1 block text-sm font-medium text-gray-800">
+						Email address
+					</label>
+					<input
+						type="email"
+						autocomplete="email"
+						class="h-11 w-full rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 outline-none
+							focus:border-gray-400 focus:ring-2 focus:ring-gray-200"
+						formControlName="email"
+					/>
+				</div>
+
+				<div>
+					<label class="mb-1 block text-sm font-medium text-gray-800">
+						Password
+					</label>
+					<input
+						type="password"
+						autocomplete="current-password"
+						class="h-11 w-full rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 outline-none
+							focus:border-gray-400 focus:ring-2 focus:ring-gray-200"
+						formControlName="password"
+					/>
+				</div>
+
+				<button (click)="submit($event)" type="button" class="btn fill w-full!">
+					Continue
+				</button>
+			</form>
+			
+			<!-- Copyright -->
+			<div class="mt-8 text-center">
+				<p class="text-xs text-gray-400">
+					© {{ year }} Multilent Softwares. All rights reserved.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

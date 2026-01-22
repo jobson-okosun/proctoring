@@ -1,0 +1,90 @@
+<div>
+  <div class="mb-6">
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Settings</h1>
+    <p class="text-sm sm:text-base text-gray-600">Manage your account settings and preferences.</p>
+  </div>
+
+  <div class="space-y-4">
+    <div class="bg-white rounded-xl p-6 border border-gray-200">
+      <div class="flex items-start justify-between">
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Profile</h3>
+          <p class="text-sm text-gray-600">Update your profile</p>
+        </div>
+        <button (click)="openProfileModal()" class="btn outline">
+          <span>Update</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl p-6 border border-gray-200">
+      <div class="flex items-start justify-between">
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Password</h3>
+          <p class="text-sm text-gray-600">Change your password</p>
+        </div>
+        <button (click)="openPasswordModal()" class="btn outline">
+          <span>Change Password</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog [visible]="showProfileModal()" (visibleChange)="showProfileModal.set($event)" [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '500px' }">
+  <ng-template pTemplate="header">
+    <h3 class="text-lg font-semibold text-gray-900">Edit Profile</h3>
+  </ng-template>
+
+  <form [formGroup]="profileForm" (ngSubmit)="submitProfile()">
+    <div class="space-y-4">
+      <input type="text" formControlName="firstName" placeholder="First name" class="w-full" />
+      <input type="text" formControlName="lastName" placeholder="Last name" class="w-full" />
+      <input type="text" formControlName="email" placeholder="Email" class="w-full" />
+      <input type="text" formControlName="username" placeholder="Username" class="w-full" />
+    </div>
+
+    <div class="flex gap-3 mt-6">
+      <button type="button" (click)="show2FAModal()" class="btn outline flex-1">Cancel</button>
+      <button type="submit" class="btn fill flex-1">Continue</button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-dialog [visible]="showPasswordModal()" (visibleChange)="showPasswordModal.set($event)" [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '500px' }">
+  <ng-template pTemplate="header">
+    <h3 class="text-lg font-semibold text-gray-900">Change Password</h3>
+  </ng-template>
+
+  <form [formGroup]="passwordForm" (ngSubmit)="submitPasswordChange()">
+    <div class="space-y-4">
+      <input type="password" formControlName="currentPassword" placeholder="Current password" class="w-full" />
+      <input type="password" formControlName="newPassword" placeholder="New password" class="w-full" />
+      <input type="password" formControlName="confirmPassword" placeholder="Confirm new password" class="w-full" />
+
+      @if (passwordForm.hasError('mismatch') && passwordForm.touched) {
+        <p class="text-red-500 text-xs">Passwords do not match</p>
+      }
+    </div>
+
+    <div class="flex gap-3 mt-6">
+      <button type="button" (click)="showPasswordModal.set(false)" class="btn outline flex-1">Cancel</button>
+      <button type="submit" class="btn fill flex-1">Continue</button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-dialog [visible]="show2FAModal()" (visibleChange)="show2FAModal.set($event)" [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '400px' }">
+  <ng-template pTemplate="header">
+    <h3 class="text-lg font-semibold text-gray-900">Two-Factor Authentication</h3>
+  </ng-template>
+
+  <form [formGroup]="twoFAForm" (ngSubmit)="confirm2FA()">
+    <input type="text" formControlName="code" placeholder="Enter 2FA code" class="w-full" />
+
+    <div class="flex gap-3 mt-6">
+      <button type="button" (click)="show2FAModal.set(false)" class="btn outline flex-1">Cancel</button>
+      <button type="submit" class="btn fill flex-1">Confirm</button>
+    </div>
+  </form>
+</p-dialog>

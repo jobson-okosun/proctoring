@@ -1,0 +1,22 @@
+<div class="flex items-center gap-3 w-max justify-center">
+    <button type="button" class="rounded-full w-10 h-10 flex items-center justify-center bg-primary text-white cursor-pointer">
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+        </svg>
+    </button>
+
+    <div class="flex flex-1 justify-center items-center gap-1">
+         @for(page of [1,2,3,4,5]; track page; let i = $index) {
+            <button
+                class="rounded-full size-10 bg-gray-200 text-gray-500 flex items-center justify-center transition duration-150 border border-transparent ring-2 ring-transparent ring-offset-1 cursor-pointer font-medium hover:border-blue-300! outline-none!">
+                {{ page }}
+            </button>
+        }
+    </div>
+
+    <button type="button" class="rounded-full w-10 h-10 flex items-center justify-center bg-primary text-white cursor-pointer">
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+        </svg>
+    </button>
+</div>

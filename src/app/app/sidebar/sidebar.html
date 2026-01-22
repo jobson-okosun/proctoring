@@ -1,0 +1,267 @@
+@if (isOpen()) {
+    <div (click)="onClose()" class="fixed inset-0 bg-[rgba(0,0,0,0.5)] backdrop-blur-sm bg-opacity-50 z-40 lg:hidden transition-opacity"></div>
+}
+
+<aside [class.translate-x-0]="isOpen()" 
+    [class.-translate-x-full]="!isOpen()"
+    class="fixed lg:relative inset-y-0 left-4 lg:left-0 top-4 bottom-4 lg:top-0 lg:bottom-0 z-50 w-[90%] md:w-max bg-[#F7F7F7] rounded-xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 flex flex-col md:h-full">
+    
+    <div class="flex flex-col justify-between h-full relative">
+        <div class="pt-7 px-2">
+            <div>
+                <div class="flex items-center justify-center gap-3">
+                    <span class="text-2xl font-black text-gray-800">Proctor</span>
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-y-auto mt-10">
+                <div>
+                   <nav class="space-y-1">
+                        @for (item of menuItems; track item.route) {
+                            <a [routerLink]="item.route" routerLinkActive="active-menu-item font-semibold! text-primary"
+                                [routerLinkActiveOptions]="{exact: false}" (click)="onClose()"
+                                class="relative flex flex-col items-center gap-3 py-2 px-4 rounded-sm text-gray-500 hover:bg-white transition-colors duration-200 group text-sm font-medium">
+                                <span class="shrink-0 w-5 h-5">
+                                    @if (item.label === 'Home') {
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M2 6C2 4.11438 2 3.17157 2.58579 2.58579C3.17157 2 4.11438 2 6 2C7.88562 2 8.82843 2 9.41421 2.58579C10 3.17157 10 4.11438 10 6V8C10 9.88562 10 10.8284 9.41421 11.4142C8.82843 12 7.88562 12 6 12C4.11438 12 3.17157 12 2.58579 11.4142C2 10.8284 2 9.88562 2 8V6Z" />
+                                            <path
+                                                d="M2 19C2 18.0681 2 17.6022 2.15224 17.2346C2.35523 16.7446 2.74458 16.3552 3.23463 16.1522C3.60218 16 4.06812 16 5 16H7C7.93188 16 8.39782 16 8.76537 16.1522C9.25542 16.3552 9.64477 16.7446 9.84776 17.2346C10 17.6022 10 18.0681 10 19C10 19.9319 10 20.3978 9.84776 20.7654C9.64477 21.2554 9.25542 21.6448 8.76537 21.8478C8.39782 22 7.93188 22 7 22H5C4.06812 22 3.60218 22 3.23463 21.8478C2.74458 21.6448 2.35523 21.2554 2.15224 20.7654C2 20.3978 2 19.9319 2 19Z" />
+                                            <path
+                                                d="M14 16C14 14.1144 14 13.1716 14.5858 12.5858C15.1716 12 16.1144 12 18 12C19.8856 12 20.8284 12 21.4142 12.5858C22 13.1716 22 14.1144 22 16V18C22 19.8856 22 20.8284 21.4142 21.4142C20.8284 22 19.8856 22 18 22C16.1144 22 15.1716 22 14.5858 21.4142C14 20.8284 14 19.8856 14 18V16Z" />
+                                            <path
+                                                d="M14 5C14 4.06812 14 3.60218 14.1522 3.23463C14.3552 2.74458 14.7446 2.35523 15.2346 2.15224C15.6022 2 16.0681 2 17 2H19C19.9319 2 20.3978 2 20.7654 2.15224C21.2554 2.35523 21.6448 2.74458 21.8478 3.23463C22 3.60218 22 4.06812 22 5C22 5.93188 22 6.39782 21.8478 6.76537C21.6448 7.25542 21.2554 7.64477 20.7654 7.84776C20.3978 8 19.9319 8 19 8H17C16.0681 8 15.6022 8 15.2346 7.84776C14.7446 7.64477 14.3552 7.25542 14.1522 6.76537C14 6.39782 14 5.93188 14 5Z" />
+                                        </svg>
+                                    }
+                                    @if (item.label === 'Exams') {
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20.0002 15C20.0002 16.8638 20.0002 17.7956 19.6957 18.5307C19.2897 19.5108 18.511 20.2895 17.5309 20.6955C16.7958 21 15.8639 21 14.0002 21H11.0002C7.22898 21 5.34334 21 4.17177 19.8284C3.00019 18.6568 3.00021 16.7712 3.00024 12.9999L3.0003 6.99983C3.00032 4.79078 4.79112 3 7.00017 3" />
+                                            <path d="M10.0002 8.5L10.4339 12.4689C10.4753 12.8007 10.6792 13.0899 10.9864 13.2219C11.6724 13.5165 12.9572 14 14.0002 14C15.0433 14 16.3281 13.5165 17.0141 13.2219C17.3213 13.0899 17.5252 12.8007 17.5666 12.4689L18.0002 8.5M20.5002 7.5V11.2692M14.0002 4L7.00024 7L14.0002 10L21.0002 7L14.0002 4Z" />
+                                        </svg>
+                                    }
+                                    @if (item.label === 'Reports') {
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#4a4a4a" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 18V16M12 18V15M17 18V13M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" />
+                                            <path d="M5.99219 11.4863C8.14729 11.5581 13.0341 11.2328 15.8137 6.82132M13.9923 6.28835L15.8678 5.98649C16.0964 5.95738 16.432 6.13785 16.5145 6.35298L17.0104 7.99142" />
+                                        </svg>
+                                    }
+                                    @if (item.label === 'Settings') {
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                            <path d="M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.831 18 20 18 20l2-2-1.484-1.75 1.098-2.652 2.386-.62V11l-2.378-.605z" />
+                                        </svg>
+                                    }
+                                    @if (item.label === 'Messaging') {
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#4a4a4a" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M8.5 14.5H15.5M8.5 9.5H12" />
+                                            <path d="M14.1706 20.8905C18.3536 20.6125 21.6856 17.2332 21.9598 12.9909C22.0134 12.1607 22.0134 11.3009 21.9598 10.4707C21.6856 6.22838 18.3536 2.84913 14.1706 2.57107C12.7435 2.47621 11.2536 2.47641 9.8294 2.57107C5.64639 2.84913 2.31441 6.22838 2.04024 10.4707C1.98659 11.3009 1.98659 12.1607 2.04024 12.9909C2.1401 14.536 2.82343 15.9666 3.62791 17.1746C4.09501 18.0203 3.78674 19.0758 3.30021 19.9978C2.94941 20.6626 2.77401 20.995 2.91484 21.2351C3.05568 21.4752 3.37026 21.4829 3.99943 21.4982C5.24367 21.5285 6.08268 21.1757 6.74868 20.6846C7.1264 20.4061 7.31527 20.2668 7.44544 20.2508C7.5756 20.2348 7.83177 20.3403 8.34401 20.5513C8.8044 20.7409 9.33896 20.8579 9.8294 20.8905C11.2536 20.9852 12.7435 20.9854 14.1706 20.8905Z" />
+                                        </svg>
+                                    }
+                                </span>
+                                <span>{{ item.label }}</span>
+                            </a>
+                        }
+                    </nav>
+                </div>
+
+                <div>
+                    <nav class="space-y-1">
+                        <button (click)="openNotificationPanel()" class="relative hidden md:flex flex-col items-center w-full gap-3 py-2 px-4 rounded-sm text-gray-500 hover:bg-white transition-colors duration-200 group text-sm font-medium">
+                            <span class="shrink-0 w-5 h-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#4a4a4a" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15.5 18C15.5 19.933 13.933 21.5 12 21.5C10.067 21.5 8.5 19.933 8.5 18" />
+                                    <path d="M19.2311 18H4.76887C3.79195 18 3 17.208 3 16.2311C3 15.762 3.18636 15.3121 3.51809 14.9803L4.12132 14.3771C4.68393 13.8145 5 13.0514 5 12.2558V9.5C5 5.63401 8.13401 2.5 12 2.5C15.866 2.5 19 5.634 19 9.5V12.2558C19 13.0514 19.3161 13.8145 19.8787 14.3771L20.4819 14.9803C20.8136 15.3121 21 15.762 21 16.2311C21 17.208 20.208 18 19.2311 18Z" />
+                                </svg>
+                            </span>
+                             <span>Notifications</span>
+                        </button>
+
+                        <button (click)="onLogout()"
+                            class="relative flex flex-col items-center w-full gap-3 py-2 px-4 rounded-sm text-gray-500 hover:bg-white transition-colors duration-200 group text-sm font-medium">
+                            <span class="shrink-0 w-5 h-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15 3H7a2 2 0 00-2 2v14a2 2 0 002 2h8m4-9l-4-4m4 4l-4 4m4-4H9" />
+                                </svg>
+                            </span>
+                            <span>Logout</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-1 w-full lg:max-w-32.5">
+            <button class="flex flex-col items-center justify-center gap-2 bg-white p-3 rounded-xl w-full overflow-hidden">
+                <div class="size-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">JD</div>
+                <p class="text-sm font-semibold text-gray-900 text-center wrap-break-word break-all">Hi, John</p>
+                <!-- <p class="text-xs text-gray-500 wrap-break-word break-all text-center">john.doe@example.com</p> -->
+            </button>
+        </div>
+
+        <div class="absolute top-0 -right-14 m-2 ml-10 lg:hidden">
+            <button (click)="onClose()" class="bg-white p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#09ab28" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 5L20 5" />
+                    <path d="M4 12L20 12" />
+                    <path d="M4 19L20 19" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <button (click)="onClose()" class="lg:hidden absolute top-4 right-4 p-2 rounded-lg text-gray-400 hover:bg-gray-100">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- @if (isOpen()) {
+    <div (click)="onClose()" class="fixed inset-0 bg-[rgba(0,0,0,0.5)] backdrop-blur-sm bg-opacity-50 z-40 lg:hidden transition-opacity"></div>
+}
+
+<aside [class.translate-x-0]="isOpen()" 
+    [class.-translate-x-full]="!isOpen()"
+    class="fixed lg:static inset-y-0 left-4 lg:left-0 top-4 bottom-4 lg:top-0 lg:bottom-0 z-50 w-[90%] md:w-56 bg-gray-100  lg:bg-transparent rounded-3xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 flex flex-col md:h-full">
+    
+    <div class="flex flex-col justify-between h-full p-3 relative">
+        <div>
+            <div class="p-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl font-black text-gray-800">Proctor</span>
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-y-auto">
+                <div class="px-4 py-4">
+                    <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">PROCTORING</p>
+
+                    <nav class="space-y-1">
+                        @for (item of menuItems; track item.route) {
+                        <a [routerLink]="item.route" routerLinkActive="active-menu-item font-semibold! text-primary"
+                            [routerLinkActiveOptions]="{exact: false}" (click)="onClose()"
+                            class="relative flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:bg-white transition-colors duration-200 group text-sm font-medium">
+                            <span class="shrink-0 w-5 h-5">
+                                @if (item.label === 'Home') {
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M2 6C2 4.11438 2 3.17157 2.58579 2.58579C3.17157 2 4.11438 2 6 2C7.88562 2 8.82843 2 9.41421 2.58579C10 3.17157 10 4.11438 10 6V8C10 9.88562 10 10.8284 9.41421 11.4142C8.82843 12 7.88562 12 6 12C4.11438 12 3.17157 12 2.58579 11.4142C2 10.8284 2 9.88562 2 8V6Z" />
+                                        <path
+                                            d="M2 19C2 18.0681 2 17.6022 2.15224 17.2346C2.35523 16.7446 2.74458 16.3552 3.23463 16.1522C3.60218 16 4.06812 16 5 16H7C7.93188 16 8.39782 16 8.76537 16.1522C9.25542 16.3552 9.64477 16.7446 9.84776 17.2346C10 17.6022 10 18.0681 10 19C10 19.9319 10 20.3978 9.84776 20.7654C9.64477 21.2554 9.25542 21.6448 8.76537 21.8478C8.39782 22 7.93188 22 7 22H5C4.06812 22 3.60218 22 3.23463 21.8478C2.74458 21.6448 2.35523 21.2554 2.15224 20.7654C2 20.3978 2 19.9319 2 19Z" />
+                                        <path
+                                            d="M14 16C14 14.1144 14 13.1716 14.5858 12.5858C15.1716 12 16.1144 12 18 12C19.8856 12 20.8284 12 21.4142 12.5858C22 13.1716 22 14.1144 22 16V18C22 19.8856 22 20.8284 21.4142 21.4142C20.8284 22 19.8856 22 18 22C16.1144 22 15.1716 22 14.5858 21.4142C14 20.8284 14 19.8856 14 18V16Z" />
+                                        <path
+                                            d="M14 5C14 4.06812 14 3.60218 14.1522 3.23463C14.3552 2.74458 14.7446 2.35523 15.2346 2.15224C15.6022 2 16.0681 2 17 2H19C19.9319 2 20.3978 2 20.7654 2.15224C21.2554 2.35523 21.6448 2.74458 21.8478 3.23463C22 3.60218 22 4.06812 22 5C22 5.93188 22 6.39782 21.8478 6.76537C21.6448 7.25542 21.2554 7.64477 20.7654 7.84776C20.3978 8 19.9319 8 19 8H17C16.0681 8 15.6022 8 15.2346 7.84776C14.7446 7.64477 14.3552 7.25542 14.1522 6.76537C14 6.39782 14 5.93188 14 5Z" />
+                                    </svg>
+                                }
+                                @if (item.label === 'Exams') {
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20.0002 15C20.0002 16.8638 20.0002 17.7956 19.6957 18.5307C19.2897 19.5108 18.511 20.2895 17.5309 20.6955C16.7958 21 15.8639 21 14.0002 21H11.0002C7.22898 21 5.34334 21 4.17177 19.8284C3.00019 18.6568 3.00021 16.7712 3.00024 12.9999L3.0003 6.99983C3.00032 4.79078 4.79112 3 7.00017 3" />
+                                        <path d="M10.0002 8.5L10.4339 12.4689C10.4753 12.8007 10.6792 13.0899 10.9864 13.2219C11.6724 13.5165 12.9572 14 14.0002 14C15.0433 14 16.3281 13.5165 17.0141 13.2219C17.3213 13.0899 17.5252 12.8007 17.5666 12.4689L18.0002 8.5M20.5002 7.5V11.2692M14.0002 4L7.00024 7L14.0002 10L21.0002 7L14.0002 4Z" />
+                                    </svg>
+                                }
+                                @if (item.label === 'Reports') {
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#4a4a4a" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M7 18V16M12 18V15M17 18V13M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" />
+                                        <path d="M5.99219 11.4863C8.14729 11.5581 13.0341 11.2328 15.8137 6.82132M13.9923 6.28835L15.8678 5.98649C16.0964 5.95738 16.432 6.13785 16.5145 6.35298L17.0104 7.99142" />
+                                    </svg>
+                                }
+                            </span>
+                            <span>{{ item.label }}</span>
+                        </a>
+                        }
+                        <button (click)="notificationOpen.set(!notificationOpen())" class="relative hidden md:flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:bg-white transition-colors duration-200 group text-sm font-medium">
+                            <span class="shrink-0 w-5 h-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#4a4a4a" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15.5 18C15.5 19.933 13.933 21.5 12 21.5C10.067 21.5 8.5 19.933 8.5 18" />
+                                    <path d="M19.2311 18H4.76887C3.79195 18 3 17.208 3 16.2311C3 15.762 3.18636 15.3121 3.51809 14.9803L4.12132 14.3771C4.68393 13.8145 5 13.0514 5 12.2558V9.5C5 5.63401 8.13401 2.5 12 2.5C15.866 2.5 19 5.634 19 9.5V12.2558C19 13.0514 19.3161 13.8145 19.8787 14.3771L20.4819 14.9803C20.8136 15.3121 21 15.762 21 16.2311C21 17.208 20.208 18 19.2311 18Z" />
+                                </svg>
+                            </span>
+                             <span>Notifications</span>
+                        </button>
+                    </nav>
+                </div>
+
+                <div class="px-4 py-4 mt-6">
+                    <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">GENERAL</p>
+
+                    <nav class="space-y-1">
+                        <a [routerLink]="'/app/settings'" routerLinkActive="active-menu-item font-semibold! text-primary"
+                            [routerLinkActiveOptions]="{exact: false}" (click)="onClose()"
+                            class="relative flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:bg-white transition-colors duration-200 group text-sm font-medium">
+                            <span class="shrink-0 w-5 h-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                    <path d="M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.831 18 20 18 20l2-2-1.484-1.75 1.098-2.652 2.386-.62V11l-2.378-.605z" />
+                                </svg>
+                            </span>
+                            <span>Settings</span>
+                        </a>
+
+                        <button (click)="onLogout()"
+                            class="w-full relative flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:bg-white transition-colors duration-200 group text-sm font-medium">
+                            <span class="shrink-0 w-5 h-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15 3H7a2 2 0 00-2 2v14a2 2 0 002 2h8m4-9l-4-4m4 4l-4 4m4-4H9" />
+                                </svg>
+                            </span>
+                            <span>Logout</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button class="flex items-center gap-2 bg-white p-3 rounded-3xl w-full">
+                <div class="size-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">JD</div>
+                <div class="hidden md:block text-left">
+                    <p class="text-sm font-semibold text-gray-900">John Doe</p>
+                    <p class="text-xs text-gray-500">john.doe@gmail.com</p>
+                </div>
+            </button>
+        </div>
+
+        <div class="absolute top-0 -right-14 m-2 ml-10 lg:hidden">
+            <button (click)="onClose()" class="bg-white p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#09ab28" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 5L20 5" />
+                    <path d="M4 12L20 12" />
+                    <path d="M4 19L20 19" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <button (click)="onClose()" class="lg:hidden absolute top-4 right-4 p-2 rounded-lg text-gray-400 hover:bg-gray-100">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+</aside> -->

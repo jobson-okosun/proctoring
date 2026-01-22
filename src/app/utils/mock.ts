@@ -1,0 +1,99 @@
+export const MOCK_USERS = [
+    {
+        id: '1',
+        name: 'Admin User',
+        email: 'admin@eteturra.com',
+        role: 'admin',
+        status: 'active',
+        joinedDate: new Date('2023-01-01'),
+        lastActive: new Date('2024-12-21'),
+    },
+    {
+        id: '2',
+        name: 'John Doe',
+        email: 'john.doe@example.com',
+        role: 'learner',
+        status: 'active',
+        joinedDate: new Date('2024-01-15'),
+        lastActive: new Date('2024-12-20'),
+        coursesEnrolled: 5,
+        totalSpent: 299.99
+    },
+    {
+        id: '3',
+        name: 'Sarah Williams',
+        email: 'sarah.williams@lawfirm.com',
+        role: 'creator',
+        status: 'active',
+        joinedDate: new Date('2023-11-10'),
+        lastActive: new Date('2024-12-21'),
+        coursesCreated: 12,
+        coursesEnrolled: 3
+    },
+    {
+        id: '4',
+        name: 'Michael Chen',
+        email: 'michael.chen@example.com',
+        role: 'learner',
+        status: 'active',
+        joinedDate: new Date('2024-06-22'),
+        lastActive: new Date('2024-12-19'),
+        coursesEnrolled: 8,
+        totalSpent: 549.99
+    },
+    {
+        id: '5',
+        name: 'Emily Rodriguez',
+        email: 'emily.r@legaltech.com',
+        role: 'creator',
+        status: 'active',
+        joinedDate: new Date('2023-08-05'),
+        lastActive: new Date('2024-12-21'),
+        coursesCreated: 8,
+        coursesEnrolled: 2
+    },
+    {
+        id: '6',
+        name: 'David Thompson',
+        email: 'david.t@example.com',
+        role: 'learner',
+        status: 'suspended',
+        joinedDate: new Date('2024-03-12'),
+        lastActive: new Date('2024-11-30'),
+        coursesEnrolled: 3,
+        totalSpent: 149.99
+    },
+    {
+        id: '7',
+        name: 'Lisa Anderson',
+        email: 'lisa.anderson@law.edu',
+        role: 'creator',
+        status: 'active',
+        joinedDate: new Date('2023-05-20'),
+        lastActive: new Date('2024-12-20'),
+        coursesCreated: 15,
+        coursesEnrolled: 1
+    },
+    {
+        id: '8',
+        name: 'James Wilson',
+        email: 'james.wilson@example.com',
+        role: 'learner',
+        status: 'banned',
+        joinedDate: new Date('2024-02-18'),
+        lastActive: new Date('2024-10-15'),
+        coursesEnrolled: 2,
+        totalSpent: 99.99
+    },
+    {
+        id: '9',
+        name: 'Maria Garcia',
+        email: 'maria.garcia@example.com',
+        role: 'learner',
+        status: 'active',
+        joinedDate: new Date('2024-07-30'),
+        lastActive: new Date('2024-12-21'),
+        coursesEnrolled: 6,
+        totalSpent: 399.99
+    }
+];
