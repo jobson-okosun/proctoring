@@ -1,25 +1,40 @@
-<div class="flex h-dvh overflow-hidden bg-white p-4 md:p-4 gap-2">
-  <!-- Sidebar -->
-  <app-sidebar [isOpen]="sidebarOpen()" (closeSidebar)="closeSidebar()"/>
+<div class="flex h-dvh gap-1 p-1.5 bg-gray-100">
 
-  <div class="flex flex-1 overflow-hidden bg-[#F7F7F7] rounded-xl p-2">
-      <!-- Main Content -->
-    <div class="flex flex-col flex-1 overflow-hidden gap-2 md:gap-2">
-        <!-- Content Area -->
-        <main class="flex-1 overflow-y-auto no-scrollbar p-1 md:p-5 pt-10 sm:pt-5!">
-            <router-outlet />
+  <div class="flex-1 h-full overflow-hidden">
+    <app-topbar></app-topbar>
+
+    <div class="flex flex-1 h-full overflow-hidden rounded-xl p-2">
+        <main class="flex-1 overflow-y-auto no-scrollbar p-1 pb-50">
+          <router-outlet />
         </main>
     </div>
+  </div>
 
-    <!-- notifications -->
-    <!-- @let isFeedPage = currentUrl().includes('feed'); -->
+  @if(notificationOpen()){
+    <div class="lg:w-75">
+      <app-sidebar-container />
+    </div>
+  }
+</div>
+
+
+<!-- <div class="flex h-dvh overflow-hidden bg-white p-4 md:p-4 gap-2 hidden!">
+  <app-sidebar [isOpen]="sidebarOpen()" (closeSidebar)="closeSidebar()" />
+
+  <div class="flex flex-1 overflow-hidden bg-[#F7F7F7] rounded-xl p-2">
+    <div class="flex flex-col flex-1 overflow-hidden gap-2 md:gap-2">
+      <main class="flex-1 overflow-y-auto no-scrollbar p-1 md:p-5 pt-10 sm:pt-5!">
+        <router-outlet />
+      </main>
+    </div>
+
+    @let isFeedPage = currentUrl().includes('feed');
 
     @if(notificationOpen()){
-      <!-- [ngClass]="{'fixed right-0 top-0 h-full z-40 p-7 ': !isFeedPage }" -->
-      <div  class="lg:w-70 cursor-grab" cdkDrag>
-          <app-live-notifications (notificationOpen)="toggleNotificationPanel()" />
-      </div>
+    <div class="lg:w-70 cursor-grab" cdkDrag>
+      <app-live-notifications (notificationOpen)="toggleNotificationPanel()" />
+    </div>
     }
 
   </div>
-</div>
+</div> -->

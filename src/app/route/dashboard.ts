@@ -27,7 +27,7 @@ const routes: Routes = [
                 ]
             },
             { path: 'settings', loadComponent: () => import('../app/settings/settings') },
-            { path: 'messaging', loadComponent: () => import('../app/messaging/messaging') }
+            { path: 'messaging', loadComponent: () => import('../app/sidebar-container/messaging/messaging') }
         ]
     }
 ]

@@ -1,1 +1,0 @@
-import"./chunk-7CGTOI24.js";var t=[{path:"",redirectTo:"signin",pathMatch:"full"},{path:"signin",loadComponent:()=>import("./chunk-WRVVRZJV.js")},{path:"mfa",loadComponent:()=>import("./chunk-4OHZ6APC.js")}],o=t;export{o as default};

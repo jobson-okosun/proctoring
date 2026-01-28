@@ -1,16 +1,14 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { Sidebar } from '../sidebar/sidebar';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { LiveNotifications } from '../live-notifications/live-notifications';
+import {  RouterOutlet } from '@angular/router';
+import { LiveNotifications } from '../sidebar-container/live-notifications/live-notifications';
 import {CdkDrag} from '@angular/cdk/drag-drop';
-import { toSignal } from '@angular/core/rxjs-interop'
-import { filter, map } from 'rxjs/operators';
 import { AppService } from '../../services/app.service';
-import { NgClass } from '@angular/common';
+import { Topbar } from '../topbar/topbar';
+import { SidebarContainer } from '../sidebar-container/sidebar-container';
 
 @Component({
   selector: 'app-layout',
-  imports: [Sidebar, RouterOutlet, LiveNotifications,CdkDrag, NgClass],
+  imports: [ RouterOutlet, LiveNotifications, CdkDrag, Topbar, SidebarContainer],
   templateUrl: './layout.html',
   styleUrl: './layout.css',
 }) 

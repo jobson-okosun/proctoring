@@ -1,0 +1,66 @@
+<div class="bg-white h-full rounded-xl p-1 overflow-hidden relative">
+    
+    <div class="flex gap-1 mb-2 border-b border-gray-200 pb-2">
+        <button (click)="activeTab.set(0)" [class.bg-gray-100]="activeTab() == 0" class="flex flex-col items-center gap-2 p-2 rounded-md text-gray-500 hover:bg-gray-100 transition-colors duration-200 group text-sm font-medium">
+            <span class="shrink-0 w-5 h-5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#4a4a4a" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15.5 18C15.5 19.933 13.933 21.5 12 21.5C10.067 21.5 8.5 19.933 8.5 18" />
+                    <path d="M19.2311 18H4.76887C3.79195 18 3 17.208 3 16.2311C3 15.762 3.18636 15.3121 3.51809 14.9803L4.12132 14.3771C4.68393 13.8145 5 13.0514 5 12.2558V9.5C5 5.63401 8.13401 2.5 12 2.5C15.866 2.5 19 5.634 19 9.5V12.2558C19 13.0514 19.3161 13.8145 19.8787 14.3771L20.4819 14.9803C20.8136 15.3121 21 15.762 21 16.2311C21 17.208 20.208 18 19.2311 18Z" />
+                </svg>
+            </span>
+            <span>Notifications</span>
+        </button>
+        <button (click)="activeTab.set(1)" [class.bg-gray-100]="activeTab() == 1" class="flex flex-col items-center gap-2 p-2  rounded-md text-gray-500 hover:bg-gray-100 transition-colors duration-200 group text-sm font-medium">
+            <span class="shrink-0 w-5 h-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#4a4a4a" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15.5 11C15.5 9.067 13.933 7.5 12 7.5C10.067 7.5 8.5 9.067 8.5 11C8.5 12.933 10.067 14.5 12 14.5C13.933 14.5 15.5 12.933 15.5 11Z" />
+                        <path d="M15.4827 11.3499C15.8047 11.4475 16.1462 11.5 16.5 11.5C18.433 11.5 20 9.933 20 8C20 6.067 18.433 4.5 16.5 4.5C14.6851 4.5 13.1928 5.8814 13.0173 7.65013" />
+                        <path d="M10.9827 7.65013C10.8072 5.8814 9.31492 4.5 7.5 4.5C5.567 4.5 4 6.067 4 8C4 9.933 5.567 11.5 7.5 11.5C7.85381 11.5 8.19535 11.4475 8.51727 11.3499" />
+                        <path d="M22 16.5C22 13.7386 19.5376 11.5 16.5 11.5" />
+                        <path d="M17.5 19.5C17.5 16.7386 15.0376 14.5 12 14.5C8.96243 14.5 6.5 16.7386 6.5 19.5" />
+                        <path d="M7.5 11.5C4.46243 11.5 2 13.7386 2 16.5" />
+                    </svg>
+            </span>
+            <span>Candidates</span>
+        </button>
+        <button (click)="activeTab.set(2)" [class.bg-gray-100]="activeTab() == 2" class="flex flex-col items-center gap-2 p-2  rounded-md text-gray-500 hover:bg-gray-100 transition-colors duration-200 group text-sm font-medium">
+            <span class="shrink-0 w-5 h-5">
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#4a4a4a" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8.5 14.5H15.5M8.5 9.5H12" />
+                    <path d="M14.1706 20.8905C18.3536 20.6125 21.6856 17.2332 21.9598 12.9909C22.0134 12.1607 22.0134 11.3009 21.9598 10.4707C21.6856 6.22838 18.3536 2.84913 14.1706 2.57107C12.7435 2.47621 11.2536 2.47641 9.8294 2.57107C5.64639 2.84913 2.31441 6.22838 2.04024 10.4707C1.98659 11.3009 1.98659 12.1607 2.04024 12.9909C2.1401 14.536 2.82343 15.9666 3.62791 17.1746C4.09501 18.0203 3.78674 19.0758 3.30021 19.9978C2.94941 20.6626 2.77401 20.995 2.91484 21.2351C3.05568 21.4752 3.37026 21.4829 3.99943 21.4982C5.24367 21.5285 6.08268 21.1757 6.74868 20.6846C7.1264 20.4061 7.31527 20.2668 7.44544 20.2508C7.5756 20.2348 7.83177 20.3403 8.34401 20.5513C8.8044 20.7409 9.33896 20.8579 9.8294 20.8905C11.2536 20.9852 12.7435 20.9854 14.1706 20.8905Z" />
+                </svg>
+            </span>
+            <span>Messaging</span>
+        </button>
+    </div>
+
+    <div class="h-full w-full">
+        @if(activeTab() == 0) {
+            <app-live-notifications />
+        }
+        @if(activeTab() == 1) {
+            <app-candidates (onChat)="activeTab.set(2)" (onInfractions)="activeTab.set(3)" />
+        }
+
+        @if(activeTab() == 2) {
+            <app-messaging />
+        }
+
+        @if(activeTab() == 3) {
+            <app-infractions />
+        }
+    </div>
+
+    <!-- Close button -->
+    <div (click)="toggleSidebarContainer()" class="absolute top-0 right-0 w-max flex justify-end items-center">
+        <button class="p-2 bg-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                width="20" height="20" color="#fff" fill="none"
+                stroke="#fff" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 6L6.00081 17.9992M17.9992 18L6 6.00085" />
+            </svg>
+        </button>
+    </div>
+
+</div>
